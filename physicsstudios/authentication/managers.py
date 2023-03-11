@@ -16,6 +16,7 @@ class CustomUserManager(BaseUserManager):
 
         user = self.model(
             email=email,
+            username=email,
             roles=roles,
             first_name=first_name,
             last_name=last_name,
