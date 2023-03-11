@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     # drf
     "rest_framework",
 
+    "rest_framework_simplejwt",
+
     # swagger
     "drf_yasg",
 ]
@@ -69,8 +71,11 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+        'authentication.authentication.BearerAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
 
 TEMPLATES = [
