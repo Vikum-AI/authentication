@@ -1,5 +1,6 @@
 from django.contrib.auth.models import BaseUserManager
 from datetime import datetime
+from django.utils import timezone
 
 
 class CustomUserManager(BaseUserManager):
@@ -23,8 +24,8 @@ class CustomUserManager(BaseUserManager):
             is_active=True,
             is_deleted=False,
             is_staff=False,
-            created_date=datetime.now(),
-            modified_date=datetime.now(),
+            created_date=timezone.now(),
+            modified_date=timezone.now(),
             created_by=email,
             modified_by=email,
             ** kwargs

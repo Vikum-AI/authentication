@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from .managers import CustomUserManager
 from datetime import datetime
 from uuid import uuid4
+from django.utils import timezone
 # Create your models here.
 
 
@@ -36,8 +37,8 @@ class MyUser(AbstractUser, PermissionsMixin):
     is_deleted = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
-    created_date = models.DateTimeField(default=datetime.now())
-    modified_date = models.DateTimeField(default=datetime.now())
+    created_date = models.DateTimeField(default=timezone.now())
+    modified_date = models.DateTimeField(default=timezone.now())
 
     created_by = models.EmailField()
     modified_by = models.EmailField()
