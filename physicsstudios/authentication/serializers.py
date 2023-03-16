@@ -22,7 +22,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
-            roles=validated_data['roles']
+            roles=5
         )
 
         user.save()
@@ -69,3 +69,9 @@ class LoginSerializer(serializers.ModelSerializer):
             'access_token': tokens['access'],
             'refresh_token': tokens['refresh']
         }
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MyUser
+        fields = ['first_name', 'last_name', 'email', 'roles']

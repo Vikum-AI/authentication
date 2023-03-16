@@ -6,16 +6,17 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import RegisterSerializer, LoginSerializer, UserSerializer
+from .permissions import IsAdmin, IsTeacher, IsDev, IsStudent
 
 User = get_user_model()
 
 
-class RegisterView(CreateAPIView):
+class RegisterStudentView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
-    authentication_classes = []
-    permission_classes = [AllowAny]
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAdmin | IsTeacher]
 
 
 class LoginView(GenericAPIView):
@@ -30,18 +31,20 @@ class LoginView(GenericAPIView):
         return Response(serializer.data)
 
 
-class UserView(APIView):
+class UserView(GenericAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         user = request.user
 
         user_info = {
             'first_name': user.first_name,
             'last_name': user.last_name,
             'email': user.email,
-            'role': user.roles,
+            'roles': user.roles,
         }
 
         return Response(user_info)
