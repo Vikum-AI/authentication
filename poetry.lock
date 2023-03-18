@@ -199,6 +199,58 @@ files = [
 Django = ">=3.2"
 
 [[package]]
+name = "django-groups-manager"
+version = "1.2.0"
+description = "Django groups manager through django-mptt."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-groups-manager-1.2.0.tar.gz", hash = "sha256:5b44c5341c77f078f22d646246e0acc6fad1cbf80ea2d91c7b62aaa965061f9d"},
+    {file = "django_groups_manager-1.2.0-py3-none-any.whl", hash = "sha256:98d874e539b409d16af6bb8738b6cee6c25f6a70464577191ac46c5f21f57ecc"},
+]
+
+[package.dependencies]
+django = ">=2"
+django-mptt = "*"
+
+[[package]]
+name = "django-js-asset"
+version = "2.0.0"
+description = "script tag with additional attributes for django.forms.Media"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django_js_asset-2.0.0-py3-none-any.whl", hash = "sha256:86f9f300d682537ddaf0487dc2ab356581b8f50c069bdba91d334a46e449f923"},
+    {file = "django_js_asset-2.0.0.tar.gz", hash = "sha256:adc1ee1efa853fad42054b540c02205344bb406c9bddf87c9e5377a41b7db90f"},
+]
+
+[package.dependencies]
+Django = ">=2.2"
+
+[package.extras]
+tests = ["coverage"]
+
+[[package]]
+name = "django-mptt"
+version = "0.14.0"
+description = "Utilities for implementing Modified Preorder Tree Traversal with your Django Models and working with trees of Model instances."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-mptt-0.14.0.tar.gz", hash = "sha256:2c92a2b1614c53086278795ccf50580cf1f9b8564f3ff03055dd62bab5987711"},
+    {file = "django_mptt-0.14.0-py3-none-any.whl", hash = "sha256:d9a87433ab0e4f35247c6f6d5a93ace6990860a4ba8796f815d185f773b9acfc"},
+]
+
+[package.dependencies]
+django-js-asset = "*"
+
+[package.extras]
+tests = ["coverage", "mock-django"]
+
+[[package]]
 name = "djangorestframework"
 version = "3.14.0"
 description = "Web APIs for Django, made easy."
@@ -641,4 +693,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "e8f8fb11bc1a7b8a2cea635c4fae4986d98c6e4325b715282d3e74ad5986068a"
+content-hash = "e61a1dc93216e8f7f9e735103a0b7cb3ecf2ad1fa85004d2748d7c0910158af1"
